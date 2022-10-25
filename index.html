@@ -167,6 +167,65 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2022/10/25/switch%20case/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="宇">
+      <meta itemprop="description" content="选择有时候比努力更重要">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="宇のBlog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2022/10/25/switch%20case/" class="post-title-link" itemprop="url">switch case</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2022-10-25 22:55:40 / 修改时间：22:56:49" itemprop="dateCreated datePublished" datetime="2022-10-25T22:55:40+08:00">2022-10-25</time>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p> 最近本人在学习单链表的时候，使用switch case 语句对单链表进行操作的时候发现了“jump to case label [-fpermissive]”这种错误，通过参考别人的博客发现，造成这种现象的原因通过查阅后发现是因为在”case:“里面定义了很多变量导致的，将case里面的定义变量的语句删除后，报错消失了。<br> 总结：不要在switch case 里面定义变量。</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="http://example.com/2022/10/25/%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95_%E6%8F%92%E5%85%A5/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -181,7 +240,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2022/10/25/%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95_%E6%8F%92%E5%85%A5/" class="post-title-link" itemprop="url">Hello World</a>
+            <a href="/2022/10/25/%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95_%E6%8F%92%E5%85%A5/" class="post-title-link" itemprop="url">排序算法_插入</a>
         </h2>
 
         <div class="post-meta">
@@ -192,7 +251,7 @@
               <span class="post-meta-item-text">发表于</span>
               
 
-              <time title="创建时间：2022-10-25 20:45:53 / 修改时间：20:45:54" itemprop="dateCreated datePublished" datetime="2022-10-25T20:45:53+08:00">2022-10-25</time>
+              <time title="创建时间：2022-10-25 20:45:53 / 修改时间：22:55:57" itemprop="dateCreated datePublished" datetime="2022-10-25T20:45:53+08:00">2022-10-25</time>
             </span>
 
           
@@ -206,7 +265,7 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h1 id="排序算法-插入"><a href="#排序算法-插入" class="headerlink" title="排序算法_插入"></a>排序算法_插入</h1><p>今天学了几个排序的算法，分别是 直接插入排序，折半插入排序，哈希排序。现在我们来实现它。</p>
+          <p>今天学了几个排序的算法，分别是 直接插入排序，折半插入排序，哈希排序。现在我们来实现它。</p>
 <hr>
 <h3 id="直接插入排序"><a href="#直接插入排序" class="headerlink" title="直接插入排序"></a>直接插入排序</h3><p>直接插入排序是将数组的元素一个一个拿出来，放到a[0]中，然后通过一个一个的比对，将该元素插入到数组中。 </p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">void InsertSort( int a[], int n) &#123;</span><br><span class="line">	for (i = 2, i &lt; n, i++) &#123;</span><br><span class="line">		a[0] = a[i];  \\将元素放到a[0]中</span><br><span class="line">		j = i - 1; </span><br><span class="line">		while (a[0] &lt; a[j]) \\a[0]起哨兵作用</span><br><span class="line">		&#123;</span><br><span class="line">			a[j + 1] = a[j] \\将比插入元素大的元素往后移动</span><br><span class="line">			           j--;</span><br><span class="line">		&#125;</span><br><span class="line">		a[j + 1] = a[0]; \\将元素插入</span><br><span class="line">	&#125;</span><br></pre></td></tr></table></figure>
@@ -258,6 +317,13 @@
 
               <time title="创建时间：2022-10-22 12:42:26" itemprop="dateCreated datePublished" datetime="2022-10-22T12:42:26+08:00">2022-10-22</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2022-10-25 22:55:59" itemprop="dateModified" datetime="2022-10-25T22:55:59+08:00">2022-10-25</time>
+              </span>
 
           
 
@@ -270,80 +336,9 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h1 id="数据结构-顺序表"><a href="#数据结构-顺序表" class="headerlink" title="数据结构_顺序表"></a>数据结构_顺序表</h1><p>最近本人在学习严版的《数据结构》中发现，其在使用c语言的函数中对顺序表进行修改的时候使用了&amp;，而不是传入该函数的指针，这是我疑惑。</p>
+          <p>最近本人在学习严版的《数据结构》中发现，其在使用c语言的函数中对顺序表进行修改的时候使用了&amp;，而不是传入该函数的指针，这是我疑惑。</p>
 <h3 id="代码块"><a href="#代码块" class="headerlink" title="代码块"></a>代码块</h3><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">bool</span> <span class="title function_">InsertList</span><span class="params">(SqList &amp;L, <span class="type">int</span> i, <span class="type">int</span> e)</span></span><br></pre></td></tr></table></figure>
 <p>让我感到很疑惑的是，在c语言中这种的语法不大友好，后来通过搜索，才发现这种语法是在c++中存在的，这种方法叫做引用（笔者没有学过c++，也是道听途说，可能并不准确，也希望读者谅解）。这种发现在我的编译器上没有报错，是因为笔者使用的是dev c++，c++在其上边的编译直接通过了。</p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2022/10/20/hello-world/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="宇">
-      <meta itemprop="description" content="选择有时候比努力更重要">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="宇のBlog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2022/10/20/hello-world/" class="post-title-link" itemprop="url">Hello World</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-              
-
-              <time title="创建时间：2022-10-20 13:08:03 / 修改时间：13:07:14" itemprop="dateCreated datePublished" datetime="2022-10-20T13:08:03+08:00">2022-10-20</time>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>Welcome to <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a target="_blank" rel="noopener" href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a target="_blank" rel="noopener" href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a target="_blank" rel="noopener" href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/writing.html">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/server.html">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/generating.html">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
 
       
     </div>
