@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>宇のBlog</title>
+  
+  
+  <link href="http://example.com/atom.xml" rel="self"/>
+  
+  <link href="http://example.com/"/>
+  <updated>2022-11-04T15:06:10.000Z</updated>
+  <id>http://example.com/</id>
+  
+  <author>
+    <name>宇</name>
+    
+  </author>
+  
+  <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>多边形面积</title>
+    <link href="http://example.com/2022/11/04/Untitled/"/>
+    <id>http://example.com/2022/11/04/Untitled/</id>
+    <published>2022-11-04T15:06:10.000Z</published>
+    <updated>2022-11-04T15:06:10.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>通过海伦公式实现c语言的多边形计算。</p><p>【问题描述】给出平面上一组顶点的坐标，计算出它们所围成的凸多边形的面积。<br>【输入形式】从标准输入读取顶点坐标。格式为：第一行是点的个数N（3≤N≤15），后面紧接着N行，每行两个数字 （由空格隔开），分别表示该点的X、Y坐标（0≤X，Y≤32767）。所有点的坐标互不相同，且按顺时针次序给出。<br>输入数据确保该多边形是一个凸多边形。<br>【输出形式】向标准输出打印一个浮点数，是该多边形的面积。该浮点数保留两位小数。<br>【输入样例】<br>4<br>3　0<br>1　0<br>1　2<br><img src="./image0013.gif" alt="Alt text"></p><p>【输出样例】<br>5.00</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line">#include &lt;stdio.h&gt;</span><br><span class="line">#include &lt;math.h&gt;</span><br><span class="line">int main()</span><br><span class="line">&#123;</span><br><span class="line">    int x[100];</span><br><span class="line">    int y[100];</span><br><span class="line">    int i = 1;</span><br><span class="line">    int n = 0;</span><br><span class="line">    int sum1 = 0, sum2 = 0;</span><br><span class="line">    scanf(&quot;%d&quot;, &amp;n);</span><br><span class="line">    while (i &lt;= n)</span><br><span class="line">    &#123;</span><br><span class="line">        scanf(&quot;%d&quot;, &amp;x[i]);</span><br><span class="line">        scanf(&quot;%d&quot;, &amp;y[i]);</span><br><span class="line">        i++;</span><br><span class="line">    &#125;</span><br><span class="line">    for (i = 1; i &lt; n; i++)</span><br><span class="line">        sum1 += x[i] * y[i + 1];</span><br><span class="line">    sum1 = sum1 + x[n] * y[1];</span><br><span class="line">    for (i = 1; i &lt; n; i++)</span><br><span class="line">        sum2 += y[i] * x[i + 1];</span><br><span class="line">    sum2 = sum2 + x[1] * y[n];</span><br><span class="line">    double s = 0;</span><br><span class="line">    s = 0.5 * (sum1 - sum2);</span><br><span class="line">    if (s &gt; 0)</span><br><span class="line">        printf(&quot;%.2lf&quot;, s);</span><br><span class="line">    else</span><br><span class="line">        printf(&quot;%.2lf&quot;, -s);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure><p><img src="./1343722896_8146.png" alt="Alt text"></p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;通过海伦公式实现c语言的多边形计算。&lt;/p&gt;
+&lt;p&gt;【问题描述】给出平面上一组顶点的坐标，计算出它们所围成的凸多边形的面积。&lt;br&gt;【输入形式】从标准输入读取顶点坐标。格式为：第一行是点的个数N（3≤N≤15），后面紧接着N行，每行两个数字 （由空格隔开），分别表示该点的X</summary>
+      
+    
+    
+    
+    <category term="c语言" scheme="http://example.com/categories/c%E8%AF%AD%E8%A8%80/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>选择排序</title>
+    <link href="http://example.com/2022/11/03/%E9%80%89%E6%8B%A9%E6%8E%92%E5%BA%8F/"/>
+    <id>http://example.com/2022/11/03/%E9%80%89%E6%8B%A9%E6%8E%92%E5%BA%8F/</id>
+    <published>2022-11-03T08:25:24.000Z</published>
+    <updated>2022-11-03T13:05:50.726Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="选择排序"><a href="#选择排序" class="headerlink" title="选择排序"></a>选择排序</h1><h3 id="算法"><a href="#算法" class="headerlink" title="算法"></a>算法</h3><p>选择排序的主要操作是选择，主要思想是：<br>每趟排序在当前待排序序列中选择出关键码最小的记录，添加到有序序列中。</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">void SelectSort(int r[,int n])&#123;</span><br><span class="line">    int i,index,t;</span><br><span class="line">    for(i=1;i&lt;n;i++)</span><br><span class="line">    &#123;</span><br><span class="line">        index=i;</span><br><span class="line">        for (j=i+1; i &lt;=n; j++)</span><br><span class="line">            if (r[j]&lt;r[index])</span><br><span class="line">            &#123;</span><br><span class="line">                index = j;</span><br><span class="line">            &#125;</span><br><span class="line">            if (index!=i)</span><br><span class="line">            &#123;</span><br><span class="line">                r[i] = t;</span><br><span class="line">                r[i] = r[index];</span><br><span class="line">                r[index] = t;</span><br><span class="line"></span><br><span class="line">            &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>平均复杂度（$n^2$）</p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h1 id=&quot;选择排序&quot;&gt;&lt;a href=&quot;#选择排序&quot; class=&quot;headerlink&quot; title=&quot;选择排序&quot;&gt;&lt;/a&gt;选择排序&lt;/h1&gt;&lt;h3 id=&quot;算法&quot;&gt;&lt;a href=&quot;#算法&quot; class=&quot;headerlink&quot; title=&quot;算法&quot;&gt;&lt;/a&gt;算法&lt;/h</summary>
+      
+    
+    
+    
+    <category term="数据结构" scheme="http://example.com/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>排序算法_交换排序</title>
+    <link href="http://example.com/2022/11/03/%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95_%E4%BA%A4%E6%8D%A2%E6%8E%92%E5%BA%8F/"/>
+    <id>http://example.com/2022/11/03/%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95_%E4%BA%A4%E6%8D%A2%E6%8E%92%E5%BA%8F/</id>
+    <published>2022-11-03T08:17:00.686Z</published>
+    <updated>2022-11-03T13:05:56.551Z</updated>
+    
+    <content type="html"><![CDATA[<p>#排序算法_交换排序<br>前天刚学了排序算法中的交换排序，分别为冒泡排序，快速排序，现在我们来实它。</p><h3 id="冒泡排序"><a href="#冒泡排序" class="headerlink" title="冒泡排序"></a>冒泡排序</h3><p>冒泡排序的实现就是在数组中对相邻的两个元素进行交换，每次循环都将最大的一个元素沉到最底，从而实现排序。</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">void bubblesort(int a[], int n)</span><br><span class="line">&#123;</span><br><span class="line">    int bound, i, exchange, t;</span><br><span class="line">    exchange = n;</span><br><span class="line">    while (exchange)</span><br><span class="line">    &#123;</span><br><span class="line">        bound = exchange;</span><br><span class="line">        exchange = 0;</span><br><span class="line">        for (i = 1; i &lt; bound; i++)</span><br><span class="line">        &#123;</span><br><span class="line">            if (a[i] &gt; a[i + 1])</span><br><span class="line">            &#123;</span><br><span class="line">                t = a[i];</span><br><span class="line">                a[i] = a[i + 1];</span><br><span class="line">                a[i + 1] = t;</span><br><span class="line">                exchange = i;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>最好情况O（0）<br>最坏情况O（$n^2$）<br>平均复杂度（$n^2$）</p><h3 id="快速排序"><a href="#快速排序" class="headerlink" title="快速排序"></a>快速排序</h3><p>快速排序，原理是选取数组中一个处于相对于中间的值，然后其他的数值和其交换。当元素基本有序时，时间复杂度最高。</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line">int partition(int a[], int first, int end)</span><br><span class="line">&#123;</span><br><span class="line">    int i, j;</span><br><span class="line">    i = first;</span><br><span class="line">    j = end;</span><br><span class="line">    int t, e;</span><br><span class="line">    while (i &lt; j &amp;&amp; r[i] &lt;= r[j]) j--;</span><br><span class="line">        if (i &lt; j)</span><br><span class="line">        &#123;</span><br><span class="line">            t = a[i];</span><br><span class="line">            a[i] = a[j];</span><br><span class="line">            a[j] = t;</span><br><span class="line">            i++;</span><br><span class="line">        &#125;</span><br><span class="line">        while (i &lt; j &amp;&amp; r[i] &lt;= r[j]) i++;</span><br><span class="line">        if (i &lt; j)</span><br><span class="line">        &#123;</span><br><span class="line">            t = a[i];</span><br><span class="line">            a[i] = a[j];</span><br><span class="line">            a[j] = t;</span><br><span class="line">            j--</span><br><span class="line">        &#125;</span><br><span class="line">        return j;</span><br><span class="line"> &#125;</span><br><span class="line">    void quicksort(int a[], int first, int end)</span><br><span class="line">    &#123;</span><br><span class="line">        int pivotpos;</span><br><span class="line">        while(first&lt;end)&#123;</span><br><span class="line">        pivotpos = partition(a, first, end);</span><br><span class="line">        quicksort(r, first, pivotpos - 1);</span><br><span class="line">        quicksort(r, pivotpos + 1, end);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure><p>时间复杂度为O（n$log_2$n）</p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;#排序算法_交换排序&lt;br&gt;前天刚学了排序算法中的交换排序，分别为冒泡排序，快速排序，现在我们来实它。&lt;/p&gt;
+&lt;h3 id=&quot;冒泡排序&quot;&gt;&lt;a href=&quot;#冒泡排序&quot; class=&quot;headerlink&quot; title=&quot;冒泡排序&quot;&gt;&lt;/a&gt;冒泡排序&lt;/h3&gt;&lt;p&gt;冒泡排</summary>
+      
+    
+    
+    
+    <category term="数据结构" scheme="http://example.com/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>switch case</title>
+    <link href="http://example.com/2022/10/25/switch%20case/"/>
+    <id>http://example.com/2022/10/25/switch%20case/</id>
+    <published>2022-10-25T14:55:40.455Z</published>
+    <updated>2022-11-03T13:05:52.784Z</updated>
+    
+    <content type="html"><![CDATA[<p> 最近本人在学习单链表的时候，使用switch case 语句对单链表进行操作的时候发现了“jump to case label [-fpermissive]”这种错误，通过参考别人的博客发现，造成这种现象的原因通过查阅后发现是因为在”case:“里面定义了很多变量导致的，将case里面的定义变量的语句删除后，报错消失了。<br> 总结：不要在switch case 里面定义变量。</p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt; 最近本人在学习单链表的时候，使用switch case 语句对单链表进行操作的时候发现了“jump to case label [-fpermissive]”这种错误，通过参考别人的博客发现，造成这种现象的原因通过查阅后发现是因为在”case:“里面定义了很多变量导致的，</summary>
+      
+    
+    
+    
+    <category term="c语言" scheme="http://example.com/categories/c%E8%AF%AD%E8%A8%80/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>排序算法_插入</title>
+    <link href="http://example.com/2022/10/25/%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95_%E6%8F%92%E5%85%A5/"/>
+    <id>http://example.com/2022/10/25/%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95_%E6%8F%92%E5%85%A5/</id>
+    <published>2022-10-25T12:45:53.969Z</published>
+    <updated>2022-11-03T13:05:48.038Z</updated>
+    
+    <content type="html"><![CDATA[<p>今天学了几个排序的算法，分别是 直接插入排序，折半插入排序，哈希排序。现在我们来实现它。</p><hr><h3 id="直接插入排序"><a href="#直接插入排序" class="headerlink" title="直接插入排序"></a>直接插入排序</h3><p>直接插入排序是将数组的元素一个一个拿出来，放到a[0]中，然后通过一个一个的比对，将该元素插入到数组中。 </p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">void InsertSort( int a[], int n) &#123;</span><br><span class="line">for (i = 2, i &lt; n, i++) &#123;</span><br><span class="line">a[0] = a[i];  \\将元素放到a[0]中</span><br><span class="line">j = i - 1; </span><br><span class="line">while (a[0] &lt; a[j]) \\a[0]起哨兵作用</span><br><span class="line">&#123;</span><br><span class="line">a[j + 1] = a[j] \\将比插入元素大的元素往后移动</span><br><span class="line">           j--;</span><br><span class="line">&#125;</span><br><span class="line">a[j + 1] = a[0]; \\将元素插入</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><h3 id="折半插入排序"><a href="#折半插入排序" class="headerlink" title="折半插入排序"></a>折半插入排序</h3><p>折半插入排序和折半查找算法近似，都是使用的同一种思想。</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">void InsertSort( int a[], int n) &#123;</span><br><span class="line"></span><br><span class="line">for (i = 2, i &lt; n, i++) &#123;</span><br><span class="line">hight = i-1;</span><br><span class="line">low = 1;</span><br><span class="line">a[0] = a[i];  \\将元素放到a[0]中</span><br><span class="line">j = i - 1; </span><br><span class="line">while (low&lt;=high) \\在low~high中折半查找</span><br><span class="line">&#123;</span><br><span class="line">mid = (high+low)/2;</span><br><span class="line">if(a[0]&lt;a[m]) high = m-1; \\</span><br><span class="line">else low = m+1;</span><br><span class="line">&#125;</span><br><span class="line">for (j=i-1;j&gt;=high+1;--j)&#123;</span><br><span class="line">a[j+1] = a[j];元素后移</span><br><span class="line">&#125; \\将元素插入</span><br><span class="line">a[high+1]=a[0];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><h3 id="希尔排序"><a href="#希尔排序" class="headerlink" title="希尔排序"></a>希尔排序</h3><p>希尔排序是采取1+d每两个进行比较，首先要求元素基本有序，然后将d缩小，进行循环，</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">void InsertSort( int a[], int n) &#123;</span><br><span class="line">for (i=d+1, i &lt; n, i++) &#123;</span><br><span class="line">a[0] = a[i];  \\将元素放到a[0]中</span><br><span class="line">j = i - d;</span><br><span class="line">while (a[0] &lt; a[j]&amp;&amp;j&gt;0) \\a[0]起哨兵作用</span><br><span class="line">&#123;</span><br><span class="line">a[j + d] = a[j] \\将比插入元素大的元素往后移动</span><br><span class="line">           j = j-d;</span><br><span class="line">&#125;</span><br><span class="line">a[j + d] = a[0]; \\将元素插入</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;今天学了几个排序的算法，分别是 直接插入排序，折半插入排序，哈希排序。现在我们来实现它。&lt;/p&gt;
+&lt;hr&gt;
+&lt;h3 id=&quot;直接插入排序&quot;&gt;&lt;a href=&quot;#直接插入排序&quot; class=&quot;headerlink&quot; title=&quot;直接插入排序&quot;&gt;&lt;/a&gt;直接插入排序&lt;/h3&gt;</summary>
+      
+    
+    
+    
+    <category term="数据结构" scheme="http://example.com/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>顺序表</title>
+    <link href="http://example.com/2022/10/22/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84_%E9%A1%BA%E5%BA%8F%E8%A1%A8/"/>
+    <id>http://example.com/2022/10/22/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84_%E9%A1%BA%E5%BA%8F%E8%A1%A8/</id>
+    <published>2022-10-22T04:42:26.596Z</published>
+    <updated>2022-11-03T13:05:54.597Z</updated>
+    
+    <content type="html"><![CDATA[<p>最近本人在学习严版的《数据结构》中发现，其在使用c语言的函数中对顺序表进行修改的时候使用了&amp;，而不是传入该函数的指针，这是我疑惑。</p><h3 id="代码块"><a href="#代码块" class="headerlink" title="代码块"></a>代码块</h3><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">bool</span> <span class="title function_">InsertList</span><span class="params">(SqList &amp;L, <span class="type">int</span> i, <span class="type">int</span> e)</span></span><br></pre></td></tr></table></figure><p>让我感到很疑惑的是，在c语言中这种的语法不大友好，后来通过搜索，才发现这种语法是在c++中存在的，这种方法叫做引用（笔者没有学过c++，也是道听途说，可能并不准确，也希望读者谅解）。这种发现在我的编译器上没有报错，是因为笔者使用的是dev c++，c++在其上边的编译直接通过了。</p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;最近本人在学习严版的《数据结构》中发现，其在使用c语言的函数中对顺序表进行修改的时候使用了&amp;amp;，而不是传入该函数的指针，这是我疑惑。&lt;/p&gt;
+&lt;h3 id=&quot;代码块&quot;&gt;&lt;a href=&quot;#代码块&quot; class=&quot;headerlink&quot; title=&quot;代码块&quot;&gt;&lt;/a&gt;</summary>
+      
+    
+    
+    
+    <category term="数据结构" scheme="http://example.com/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>Hello World</title>
+    <link href="http://example.com/2022/10/20/hello-world/"/>
+    <id>http://example.com/2022/10/20/hello-world/</id>
+    <published>2022-10-20T05:08:03.000Z</published>
+    <updated>2022-10-20T05:07:14.510Z</updated>
+    
+    <content type="html"><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p><h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p><h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p><h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p><h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;Welcome to &lt;a href=&quot;https://hexo.io/&quot;&gt;Hexo&lt;/a&gt;! This is your very first post. Check &lt;a href=&quot;https://hexo.io/docs/&quot;&gt;documentation&lt;/a&gt; for</summary>
+      
+    
+    
+    
+    
+  </entry>
+  
+</feed>
