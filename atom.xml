@@ -6,7 +6,7 @@
   <link href="http://example.com/atom.xml" rel="self"/>
   
   <link href="http://example.com/"/>
-  <updated>2022-11-04T15:06:10.000Z</updated>
+  <updated>2022-11-15T02:45:10.644Z</updated>
   <id>http://example.com/</id>
   
   <author>
@@ -15,6 +15,29 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>数据操作</title>
+    <link href="http://example.com/2022/11/15/f-string/"/>
+    <id>http://example.com/2022/11/15/f-string/</id>
+    <published>2022-11-15T02:45:10.573Z</published>
+    <updated>2022-11-15T02:45:10.644Z</updated>
+    
+    <content type="html"><![CDATA[<p>python中<code>f-string</code>输出小数的方法<code>f&#39;&#123;:.nf&#125;&#39;</code>其中n是你想保留的小数</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; a = 123.456</span><br><span class="line"># 只指定width 宽度右对齐</span><br><span class="line">&gt;&gt;&gt; f&quot;&#123;a:10&#125;&quot;</span><br><span class="line">&#x27;   123.456&#x27;</span><br><span class="line"># 只指定0width 用0填充</span><br><span class="line">&gt;&gt;&gt; f&quot;&#123;a:010&#125;&quot;</span><br><span class="line">&#x27;000123.456&#x27;</span><br><span class="line"># 使用width.precision 精度加宽度</span><br><span class="line">&gt;&gt;&gt; f&quot;&#123;a:8.1f&#125;&quot;</span><br><span class="line">&#x27;   123.5&#x27;</span><br><span class="line">&gt;&gt;&gt; f&quot;&#123;a:8.2f&#125;&quot;</span><br><span class="line">&#x27;  123.46&#x27;</span><br><span class="line">&gt;&gt;&gt; f&quot;&#123;a:.2f&#125;&quot;</span><br><span class="line">&#x27;123.46&#x27;</span><br><span class="line"># 在width后面，直接加f，表示补足小数点后的位数至默认精度6</span><br><span class="line">&gt;&gt;&gt; f&quot;&#123;a:2f&#125;&quot;</span><br><span class="line">&#x27;123.456000&#x27;</span><br></pre></td></tr></table></figure>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;python中&lt;code&gt;f-string&lt;/code&gt;输出小数的方法&lt;code&gt;f&amp;#39;&amp;#123;:.nf&amp;#125;&amp;#39;&lt;/code&gt;其中n是你想保留的小数&lt;/p&gt;
+&lt;figure class=&quot;highlight plaintext&quot;&gt;&lt;table&gt;&lt;tr</summary>
+      
+    
+    
+    
+    <category term="python学习" scheme="http://example.com/categories/python%E5%AD%A6%E4%B9%A0/"/>
+    
+    
+  </entry>
   
   <entry>
     <title>多边形面积</title>
