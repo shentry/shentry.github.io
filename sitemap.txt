@@ -1,10 +1,11 @@
+http://example.com/2022/11/21/%E7%9B%B4%E6%8E%A5%E6%8F%92%E5%85%A5%E6%8E%92%E5%BA%8F/
+http://example.com/2022/11/21/%E6%8A%98%E5%8D%8A%E6%8F%92%E5%85%A5/
 http://example.com/2022/11/15/f-string/
 http://example.com/2022/11/04/Untitled/
 http://example.com/2022/11/03/%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95_%E4%BA%A4%E6%8D%A2%E6%8E%92%E5%BA%8F/
 http://example.com/2022/10/22/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84_%E9%A1%BA%E5%BA%8F%E8%A1%A8/
 http://example.com/2022/10/25/switch%20case/
 http://example.com/2022/11/03/%E9%80%89%E6%8B%A9%E6%8E%92%E5%BA%8F/
-http://example.com/2022/10/25/%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95_%E6%8F%92%E5%85%A5/
 http://example.com/tags/index.html
 http://example.com/about/index.html
 http://example.com/categories/index.html
