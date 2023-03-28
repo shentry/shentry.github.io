@@ -6,7 +6,7 @@
   <link href="http://example.com/atom.xml" rel="self"/>
   
   <link href="http://example.com/"/>
-  <updated>2022-12-30T12:16:38.436Z</updated>
+  <updated>2023-03-28T08:37:54.000Z</updated>
   <id>http://example.com/</id>
   
   <author>
@@ -15,6 +15,96 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Batch and Momentum</title>
+    <link href="http://example.com/2022/12/27/Batch%20and%20Momentum/"/>
+    <id>http://example.com/2022/12/27/Batch%20and%20Momentum/</id>
+    <published>2022-12-26T16:00:00.000Z</published>
+    <updated>2023-03-28T08:37:54.000Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="Batch-and-Momentum"><a href="#Batch-and-Momentum" class="headerlink" title="Batch and Momentum"></a>Batch and Momentum</h1><h2 id="Small-batch-vs-Large-Batch"><a href="#Small-batch-vs-Large-Batch" class="headerlink" title="Small batch vs Large Batch"></a>Small batch vs Large Batch</h2><p><img src="https://i.328888.xyz/2023/02/03/ILOKH.png" alt="ILOKH.png"><br>左边是选取所有的资料，右边是每次选一个<br>batch如果很大更新参数就比较慢，需要很长时间才能更新一次参数，而batch小的话更新参数就比较快，但是他的每一步都是不稳的。<br>如果有并行运算，那么左边所花的<strong>时间也不一定很长。</strong><br>如果批次很大，gpu的平行运算能力是有限的，所以花费的时间也会有个极限。<br>批次很小的话，就会丧失平行运算的能力。需要很长时间跑完全部的数据集。所花费的时间就会更长。<br><img src="https://i.328888.xyz/2023/02/03/IL7RV.png" alt="IL7RV.png"><br>但是如果批次很大的话，training会比较差。这是optimization的问题，而小的batch_seize的训练结果就会比较好。</p><h3 id="“Noisy”-update-is-better-for-training"><a href="#“Noisy”-update-is-better-for-training" class="headerlink" title="“Noisy” update is better for training"></a>“Noisy” update is better for training</h3><p><img src="./1675394949934.png" alt="Alt text"><br>每次更新参数的时候，批次大是沿着一个函数下来的，而小批次是更新参数有差异的，L1不走了，L2可能就会走。</p><h3 id="“Noisy”-update-is-better-for-generalization"><a href="#“Noisy”-update-is-better-for-generalization" class="headerlink" title="“Noisy” update is better for generalization"></a>“Noisy” update is better for generalization</h3><p>小的批次对testing也有帮助。原理就细讲。<br><img src="https://i.328888.xyz/2023/02/03/ILMFy.png" alt="ILMFy.png"><br>总得来说batch_size要选取一个合适大小，一般就是64，128，256.</p><h2 id="Momentum"><a href="#Momentum" class="headerlink" title="Momentum"></a>Momentum</h2><p><img src="https://i.328888.xyz/2023/02/03/IL1xZ.png" alt="IL1xZ.png"><br>动量就是延着上一次梯度更新的方向走，加上栋梁就会使这一次的参数更新与上一次有关联。如果这一次梯度是0的话还是有办法继续走下去的，如果影响力很大的话可能就是翻过山丘走到更好的局部最小值。</p>]]></content>
+    
+    
+    <summary type="html">深度学习方法</summary>
+    
+    
+    
+    <category term="深度学习" scheme="http://example.com/categories/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/"/>
+    
+    
+    <category term="Deep learning" scheme="http://example.com/tags/Deep-learning/"/>
+    
+    <category term="python" scheme="http://example.com/tags/python/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>GAN（生成式对抗网络）</title>
+    <link href="http://example.com/2022/12/27/GAN%EF%BC%88%E7%94%9F%E6%88%90%E5%BC%8F%E5%AF%B9%E6%8A%97%E7%BD%91%E7%BB%9C%EF%BC%89/"/>
+    <id>http://example.com/2022/12/27/GAN%EF%BC%88%E7%94%9F%E6%88%90%E5%BC%8F%E5%AF%B9%E6%8A%97%E7%BD%91%E7%BB%9C%EF%BC%89/</id>
+    <published>2022-12-26T16:00:00.000Z</published>
+    <updated>2023-03-28T08:28:24.000Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="GAN（生成式对抗网络）"><a href="#GAN（生成式对抗网络）" class="headerlink" title="GAN（生成式对抗网络）"></a>GAN（生成式对抗网络）</h1><h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><p><img src="https://i.328888.xyz/2023/01/31/8dRXq.png" alt="8dRXq.png"><br>加入一个简单的分布样本，这个z就是我们在原始的神经网络上加入的简单的分布。<br>怎么同时将z和x输入：<br>    1.可以说x是一个向量，z也是一个向量，两者拼接成一个长向量当作输入。<br>       2.在长度相同时，可以让他们相加，当作输入。<br>z不是固定的，他也是在一个分布中去选出来的，这个分布必须足够简单。<br><img src="https://i.328888.xyz/2023/01/31/8d3Cb.png" alt="8d3Cb.png"><br>我们输入这个分布z那么我们经过我们的神经网络得到的输出y也是一个分布。</p><h3 id="为什么输入需要是一个分布呢？"><a href="#为什么输入需要是一个分布呢？" class="headerlink" title="为什么输入需要是一个分布呢？"></a>为什么输入需要是一个分布呢？</h3><p>当我们让机器去看视频时，机器会预测接下会发生什么<br><img src="https://i.328888.xyz/2023/01/31/8d7bL.png" alt="8d7bL.png"><br>机器在此过程中科能会出先小人分裂这种画面，而这不是我们想要的，这是一个错误的结果，<br>所以我们需要加入一个分布，让结果并不唯一，让机器知道让左向右是两种可能。<br>而我们需要这种模型是因为我们要让机器需要一点创造力的时候。<br>我们这就需要让机器的<strong>输出是有机率的</strong>，而不是单一的输出，这杨让他的输出是一个分布。<br><img src="https://i.328888.xyz/2023/02/01/8KAS3.png" alt="8KAS3.png"><br>我们给这个网络加上一个z，他的输出就变成一个分布。</p><h2 id="Generator（生成器）"><a href="#Generator（生成器）" class="headerlink" title="Generator（生成器）"></a>Generator（生成器）</h2><p>生成模型其中最知名的就是generative adversarial network，他的缩写为GAN<br><img src="https://i.328888.xyz/2023/02/01/8KCgH.png" alt="8KCgH.png"><br>这个z是从一个分布中随机取样出来的,这个维度是自己自定的，生成一个图片就是让这个模型生成一个高纬度向量。一般来说，现阶段笔者的程度，z用正态分布就可以了，不同的分布之间的差距并不大。</p><h2 id="Discriminator（鉴别器）"><a href="#Discriminator（鉴别器）" class="headerlink" title="Discriminator（鉴别器）"></a>Discriminator（鉴别器）</h2><p>在训练GAN的时候，我们除了要训练generator<br><img src="https://i.328888.xyz/2023/02/01/8KI6J.png" alt="8KI6J.png"><br>这个鉴别器的作用时那一张图片作为输入，输出一个数值，它本身也还是一个神经网络，是一个函数。<br><img src="https://i.328888.xyz/2023/02/01/8KRgo.png" alt="8KRgo.png"><br>输入一张图片，输出的是一个数字，是一个标量，这个标量的分数越大，证明越像时二次元头像，这里面的架构是由自己决定，比如现在对图像操作，那我们在这里面就得用很多的cnn。</p><h2 id="GNN的基本想法"><a href="#GNN的基本想法" class="headerlink" title="GNN的基本想法"></a>GNN的基本想法</h2><p><img src="https://i.328888.xyz/2023/02/01/8KBRd.png" alt="8KBRd.png"><br>就类似于生物的进化一样，generator去生成图片，而discriminator做的就是判断生成的图片与我们的训练资料有什么差别，进行相当于打分的操作，从而使generator进化，之后他就可以骗过第一代discrimination，discrimination也会进步，这两个之间在不断的互动。<br>就类似于啊generator是假钞的啊,然后discriminator是警察啊,警察要抓做假钞的人啊,假钞就会越来越像,警察就会越来越厉害等等。他们俩就像实在对抗一样，亦敌亦友，像是鸣人跟佐助一样。<br><img src="https://i.328888.xyz/2023/02/01/8KLwZ.png" alt="8KLwZ.png"></p><h2 id="算法"><a href="#算法" class="headerlink" title="算法"></a>算法</h2><p>generator跟discrimination他们就是两个神经网络，在训练之前我们要先初始化参数。</p><h3 id="Step1-固定generator-G，更新discriminator-D"><a href="#Step1-固定generator-G，更新discriminator-D" class="headerlink" title="Step1 固定generator G，更新discriminator D"></a>Step1 固定generator G，更新discriminator D</h3><p>一开始G的参数是随机的，固定住G很产生很乱的图片，在正态分布中去丢进一些向量，他就会吐出一些图片，刚开始会和二次元任务非常不像，接下来我们就可以拿这些产生的托i按和真正的二次元头像，去训练D，他的任务就是分辨产生的图像和真正的二次元任务的差别。<br>实际上操作就是把真正的人物都标1,G产生的标0。<br><img src="https://i.328888.xyz/2023/02/01/8Lfwc.png" alt="8Lfwc.png"><br>接下来对discriminator就是一个分类问题，也可以说是回归问题</p><ul><li>如果是分类问题，就把真正的看作为1，生成的当作类别2，训练一个分类器就好。</li><li>如果是回归就让discrimination看到真正的输出1，生成的输出2。</li></ul><p>这两个都可以选择</p><h3 id="Step2-固定D，更新G"><a href="#Step2-固定D，更新G" class="headerlink" title="Step2 固定D，更新G"></a>Step2 固定D，更新G</h3><p>拟人化讲法就是让generator去骗过discriminator。<br>在generator输入一个向量，在高斯分布中出来的向量作为输入，然后产生一个图片，出来的向量作为输入，然后产生一个图片。接着丢入discriminator，他会给图片一个分数，discrimination是固定的，我们只会更新generator的参数。<br>generator的目标是让discriminator的输出越大越好，分数越高证明输出是约真实的.<br><img src="https://i.328888.xyz/2023/02/01/8LpEZ.png" alt="8LpEZ.png"><br>Generator是一个network裡面有好几层,Discriminator也是一个,network裡面有好几层,我们generator跟Discriminator直接接起来,当做一个比较大的network来看。我们希望这个神经网络输出越大越好，但是<strong>不会去调整discriminator的参数</strong>。<br>为什么呢？是因为我们如果要调整最后的参数的话，那我们直接调整最后的参数就可以的，让输出变得很大，就没有generator的事情了。<br>这和训练一般的神经网络现在就没有什么不同了，现在就只需要用梯度上升就行训练，因为输出的值我们是希望越大越好。<br>所以现在讲了两个步骤</p><ul><li>第一个步骤 固定generator,训练discriminator</li><li>第二个步骤,固定discriminator训练generator</li></ul><p>接下来就是反复的训练，训练g和d交替进行，</p><h2 id="GAN-理论介绍"><a href="#GAN-理论介绍" class="headerlink" title="GAN 理论介绍"></a>GAN 理论介绍</h2><h3 id="训练目标"><a href="#训练目标" class="headerlink" title="训练目标"></a>训练目标</h3><p>在generator问题中我们是想要minimize和maximize什么东西<br>我们想要minimize的是：<br>丢进generator的向量和正态分布，会产生一个复杂的分布，我们叫他PG，我们有一组真正的data，这个真正data也是一个分布，叫做Pdata，我们要的是这两个越接近越好。</p><h3 id="遇到的问题"><a href="#遇到的问题" class="headerlink" title="遇到的问题"></a>遇到的问题</h3><p>我们是想这两个分布越接近越好，但是怎么去计算这两个分布的差异<br><img src="https://i.328888.xyz/2023/02/01/8MiAU.png" alt="8MiAU.png"><br>我们可以通过<strong>discriminato</strong>r去直接跳过差异的计算。<br>我们可以对真实分布和虚假分布做抽样，例如，用生成器随机生成虚假图片就是对虚假分布做抽样<br><img src="./1675223583880.png" alt="Alt text"><br>在有了来自真实分布和虚假分布的数据之后，我们可以对生成器和判别器分别进行训练。</p><p>下面是对判别器进行训练，判别器的训练目标是，尽可能使得判别网络对输入真实图片时的期望输出较大，而输入虚假图片时的期望输出较小，由于一个要求较小，一个要求较大，不好统一，所以用1减去虚假图片输出，使得这个值较大，这样两个值就可以相加，使得他们相加的值较大即可。<br><img src="./1675223605413.png" alt="Alt text"></p><p>但是生成网络的训练目标就有点复杂了，他的目标是希望判别器的误差较大，即判别器的目标函数较小（判别器目标是极大化的），总的来说，生成器希望最小化判别器的最大化目标值，这样生成器才可以很好地骗过判别器。</p><p>这个最小最大化问题就是复杂的地方，在GAN中，为了处理MinMax问题，采取了之前的”轮着训练“的方式，即先固定生成器，训练判别器，再固定判别器，训练生成器，如此循环的方式进行训练。<br><img src="./1675223614749.png" alt="Alt text"></p><h3 id="训练的技巧"><a href="#训练的技巧" class="headerlink" title="训练的技巧"></a>训练的技巧</h3><h5 id="Wasserstein-Distance"><a href="#Wasserstein-Distance" class="headerlink" title="Wasserstein Distance"></a>Wasserstein Distance</h5><p>Wasserstein Distance的想法是假设有两个分布一个叫做p一个叫做q。<br><img src="https://i.328888.xyz/2023/02/01/8MI0A.png" alt="8MI0A.png"><br>他的计算方法就是相当于在开一个推土机，将p挪动到q的平均距离就叫做Wasserstein Distance。<br><img src="https://i.328888.xyz/2023/02/01/8MNBo.png" alt="8MNBo.png"><br>但是遇见这种情况就很麻烦了，这样有很多种做法，我们只能穷举所有的移动办法，选取最小的那个值。<br>为什么要使用Wasserstein距离？因为如果使用JS散度，其有一个特性，当两个分布没有重叠时，JS散度求出的就是Log2，所以如果两分布没有重叠，无论他们距离多远或者多近，使用JS散度得出来的损失都是Log2，这样我们就无法知道两分布得真实距离了。<br>对 JS Divergence 而言,它需要做到直接从这一步跳到这一步,它的 JS Divergence 的 Loss 才会有差异,但是对 W Distance 而言,你只要每次有稍微把 PG 往 Pdata 挪近一点,W Distance 就会有变化,WDistance 有变化,你才有办法 Train 你的 Generator,去 Minimize W Distance,所以这就是為什麼,当我们从 JS Divergence,换成 Wasserstein Distance 的时候,可以带来的好处。</p><h4 id="WGAN"><a href="#WGAN" class="headerlink" title="WGAN"></a>WGAN</h4><p>WGAN就是我们把js 分歧用Wasserstein Distance代替。<br><img src="https://i.328888.xyz/2023/02/01/IVCuH.png" alt="IVCuH.png"><br>这个式子就是计算Wasserstein Distance，</p><ul><li>y 如果是从 Pdata 来的,那我们要计算它的 D(y) 的期望值</li><li>y 如果是从 PG 来的,我们计算它的 D(y) 的期望值,但是前面乘上一个负号</li></ul><p>如果y是在pdata中选取的，Discriminator输出就越大越好。<br>如果实在pf是选区的那就要越小越好<br>为了使函式变得平滑，D必须要是一个 1-Lipschitz 的 Function。</p><h2 id="GAN-的评估"><a href="#GAN-的评估" class="headerlink" title="GAN 的评估"></a>GAN 的评估</h2><p>可以把GAN生成出来的一个图片放到一个影像分类系统中，看他生成什么结果。<br><img src="https://i.328888.xyz/2023/02/02/IH5fo.png" alt="IH5fo.png"><br>影像分类系统的输入是图片，输出是一个分布，如果这个分布越集中，那就代表这个生成的图片科能越好。如果产生的的分布越集中的话，就越证明分类系统肯定看到什么东西，而如果机器产生的图片越是四不像，那么他的分布就越平坦，分类系统也不确定他看到了什么东西。</p><h3 id="Mode-Collapse"><a href="#Mode-Collapse" class="headerlink" title="Mode Collapse"></a>Mode Collapse</h3><p>但是用这种方法就会产生<strong>Mode Collapse</strong>的问题<br><img src="https://i.328888.xyz/2023/02/02/IHsYd.png" alt="IHsYd.png"><br>蓝色星星是真正的数据资料分布，红色的就是GAN产生图片的分布<br>他就是会产生很多相同的图片。相当于这个地方就是Discriminator的盲点，而Generator就抓住这个盲点硬打一发。<br>目前没有很好的办法解决这个问题。</p><h3 id="Mode-Dropping"><a href="#Mode-Dropping" class="headerlink" title="Mode Dropping"></a>Mode Dropping</h3><p><img src="https://i.328888.xyz/2023/02/02/IHTsx.png" alt="IHTsx.png"><br>资料分布于生成的接近，但是他的多样性达不到。<br><img src="https://i.328888.xyz/2023/02/02/IHQ8L.png" alt="IHQ8L.png"><br><img src="https://i.328888.xyz/2023/02/02/Ic7Nq.png" alt="Ic7Nq.png"><br>这两个脸像是相同的，但是他的肤色不同这说明这个GAN的多样性不好，而且Mode Dropping不太容易被侦测出来 ，今天训练很好的GAN都不一定不会有这个问题。<br>Diversity：过去就是用我们的分类器，去观察GAN的输出，看他的分布是否均匀，如果均匀则代表他的多样性好，但是如果不均匀的话就证明多样性不好。</p><ul><li>diversity这个是看到一堆图片，他的分布越平坦，就带表Diversity越大</li><li>而quality（质量）看到的是一个图片，看他的分布集中不集中</li></ul><h2 id="Conditional-Generation"><a href="#Conditional-Generation" class="headerlink" title="Conditional Generation"></a>Conditional Generation</h2><p>目前为止，我们输入都只是一个随机分布而已，他不见得有用。<br><a href="https://imgloc.com/i/Icvr3"><img src="https://i.328888.xyz/2023/02/02/Icvr3.md.png" alt="Icvr3.md.png"></a><br>现在我们想要的是输入一个Conditional给generation，来使我们得到想要的结果。</p><h3 id="应用"><a href="#应用" class="headerlink" title="应用"></a>应用</h3><h4 id="text-to-image"><a href="#text-to-image" class="headerlink" title="text to image"></a>text to image</h4><p>我们可以给机器一段文字，让他来输出图片.<br><img src="https://i.328888.xyz/2023/02/02/IcKZ5.png" alt="IcKZ5.png"><br>我们给他成对的资料进行训练。但是有已经生成好的图片对不上标签，可以将一部分文字和图片乱配。让discriminator看到这样的结果也会说不好。</p><h4 id="pix2pix"><a href="#pix2pix" class="headerlink" title="pix2pix"></a>pix2pix</h4><p>这是通过图片生成图片，与文字生成图片没有什么不同。如果用自主监督学习并不会得到很好的结果，因为结果具有多样性。如果只用GAN他的创造力过强，并不能得到很好的结果。<br><img src="https://i.328888.xyz/2023/02/02/Im41A.png" alt="Im41A.png"></p><p><img src="https://i.328888.xyz/2023/02/02/ImD0o.png" alt="ImD0o.png"><br>所以最好的办法就是这两个一起使用。</p><h2 id="Learning-from-Unpaired-Data"><a href="#Learning-from-Unpaired-Data" class="headerlink" title="Learning from Unpaired Data"></a>Learning from Unpaired Data</h2><p>没有成对的训练资料怎么办呢，下面用图像风格转换来举例，将人脸转换为二次元。<br><img src="https://i.328888.xyz/2023/02/02/ImbCk.png" alt="ImbCk.png"><br>有个问题就是我们不能确保这个图片生成的与x的输入有关系啊。</p><h3 id="Cycle-GAN"><a href="#Cycle-GAN" class="headerlink" title="Cycle GAN"></a>Cycle GAN</h3><p>在这个模型里面会有两个Generator.</p><ul><li>第一个是把x domain变成y domain</li><li>第二是把y domain变成y domain</li></ul><p>在训练的时候就是要把输入和输出越接近越好，这两个输出都是向量，就是让这两个向量越接近越好。<br>所以现在这边我们有三个Network</p><ol><li>第一个generator,它的工作是把X转成Y</li><li>第二个generator,它的工作是要把Y还原回原来的X</li><li>那这个discriminator,它的工作仍然是要看,蓝色的这个generator它的输出,像不像是Y domain的图</li></ol><p>这个cycle是双向的，现在可以拿二次元图像输出人脸然后再去生成二次元图像<br><img src="https://i.328888.xyz/2023/02/02/ImolA.png" alt="ImolA.png"><br>那你依然要让,输入跟输出越接近越好,那你一样要训练一个discriminator,这个discriminator 是,Xdomain的discriminator,它是要看一张图片,像不像是真实人脸的discriminator,这个discriminato要去看说,这一个橙色的generator的输出,像不像是真实的人脸,这个橙色的generator它要去骗过,这个Dx这个绿色的左边,这一个discriminator,这个合起来就是Cycle GAN。</p><h3 id="Text-Style-Transfer"><a href="#Text-Style-Transfer" class="headerlink" title="Text Style Transfer"></a>Text Style Transfer</h3><p>这个技术也可以用在文字风格转换，可以搜集负面和正面的句子，和和上面图像风格转换类似，这里就不再赘述。</p>]]></content>
+    
+    
+    <summary type="html">深度学习中model</summary>
+    
+    
+    
+    <category term="深度学习" scheme="http://example.com/categories/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/"/>
+    
+    
+    <category term="Deep learning" scheme="http://example.com/tags/Deep-learning/"/>
+    
+    <category term="python" scheme="http://example.com/tags/python/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Go数组</title>
+    <link href="http://example.com/2022/12/27/go%E8%AF%AD%E8%A8%80%E6%95%B0%E7%BB%84/"/>
+    <id>http://example.com/2022/12/27/go%E8%AF%AD%E8%A8%80%E6%95%B0%E7%BB%84/</id>
+    <published>2022-12-26T16:00:00.000Z</published>
+    <updated>2023-03-28T08:32:48.000Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="go语言数组"><a href="#go语言数组" class="headerlink" title="go语言数组"></a>go语言数组</h1><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">package main</span><br><span class="line"></span><br><span class="line">import &quot;fmt&quot;</span><br><span class="line"></span><br><span class="line">func main() &#123;</span><br><span class="line">var i int</span><br><span class="line">a := [5]float32&#123;1000, 2, 2, 2, 2&#125;</span><br><span class="line">//var balance [5]float32</span><br><span class="line"></span><br><span class="line">//for i = 0; i &lt; 5; i++ &#123;</span><br><span class="line">//balance[i] = 5</span><br><span class="line">//fmt.Println(balance[i])</span><br><span class="line">//&#125;</span><br><span class="line">mix(&amp;a)</span><br><span class="line">//print(balance[4])</span><br><span class="line">for i = 0; i &lt; 5; i++ &#123;</span><br><span class="line">fmt.Println(a[i])</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line">func mix(arr *[5]float32) int &#123;</span><br><span class="line">var k float32 = 5</span><br><span class="line">arr[4] = k</span><br><span class="line">return 0</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p><img src="https://raw.githubusercontent.com/shentry/Figure-bed/main/20230328160911.png"><br>——————–分割线——————–<br>改为    </p><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">mix(a) </span><br><span class="line">mix(arr [5]float32)</span><br></pre></td></tr></table></figure><p><img src="https://raw.githubusercontent.com/shentry/Figure-bed/main/20230328161011.png"></p><p>对于go语言来说传入数组不能像c语言一样直接修改，需要传入他的指针，才能对他的值进行修改。</p>]]></content>
+    
+    
+    <summary type="html">Go语言的数组</summary>
+    
+    
+    
+    <category term="Go语言" scheme="http://example.com/categories/Go%E8%AF%AD%E8%A8%80/"/>
+    
+    
+    <category term="Go" scheme="http://example.com/tags/Go/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>自动更新学习率</title>
+    <link href="http://example.com/2022/12/27/%E8%87%AA%E5%8A%A8%E6%9B%B4%E6%96%B0%E5%8F%82%E6%95%B0/"/>
+    <id>http://example.com/2022/12/27/%E8%87%AA%E5%8A%A8%E6%9B%B4%E6%96%B0%E5%8F%82%E6%95%B0/</id>
+    <published>2022-12-26T16:00:00.000Z</published>
+    <updated>2023-03-28T08:42:04.000Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="自动更新参数"><a href="#自动更新参数" class="headerlink" title="自动更新参数"></a>自动更新参数</h1><p>鞍点不一定是训练过程中最大的阻碍，当loss不再下降，梯度不一定很小。<br><img src="https://i.328888.xyz/2023/02/05/NTV7z.png" alt="NTV7z.png"><br>这就是error surface卡在了两个山谷之间不断震荡。这时候loss不会再下降，这时候就是卡在了临界点。当你用gradient descend来做优化时，往往不是因为临界点。</p><h2 id="不同的参数需要不同的学习率"><a href="#不同的参数需要不同的学习率" class="headerlink" title="不同的参数需要不同的学习率"></a>不同的参数需要不同的学习率</h2><p>如果在某个地方很平坦，就希望学习率大一些，而在某个地方很崎岖，就希望学习率小一些。<br>我们有Momentum,也就是说我们现在,不是完全顺著gradient的方向,现在不是完全顺著这一个时间<br>点,算出来的gradient的方向,来update参数,而是把过去,所有算出来gradient的方向,做一个加总当<br>作update的方向,这个是momentum<br>接下来应该要update多大的步伐呢,我们要除掉,gradient的Root Mean Square<br>那讲到这边可能有同学会觉得很困惑,这一个momentum是考虑,过去所有的gradient,这个σ也是考<br>虑过去所有的gradient,一个放在分子一个放在分母,都考虑过去所有的gradient,不就是正好抵销了<br>吗,<br>但是其实这个Momentum跟这个σ,它们在使用过去所有gradient的方式是不一样的,Momentum<br>是直接把所有的gradient通通都加起来,所以它有考虑方向,它有考虑gradient的正负号,它有考虑<br>gradient是往左走还是往右走<br>但是这个Root Mean Square,它就不考虑gradient的方向了,它只考虑gradient的大小,记不记得<br>我们在算σ的时候,我们都要取平方项,我们都要把gradient取一个平方项,我们是把平方的结果加起<br>来,所以我们只考虑gradient的大小,不考虑它的方向,所以Momentum跟这个σ,算出来的结果并不会<br>互相抵销掉<br>那最后我们还会加上,一个learning rate的scheduling,<br>那这个是今天optimization的,完整的版本了,这种Optimizer,除了Adam以外,Adam可能是今天最常<br>用的,但除了Adam以外,还有各式各样的变形,但其实各式各样的变形都不脱,就是要嘛不同的方法算<br>M,要嘛不同的方法算σ,要嘛不同的,Learning Rate Scheduling的方式</p>]]></content>
+    
+    
+    <summary type="html">深度学习中的方法</summary>
+    
+    
+    
+    <category term="深度学习" scheme="http://example.com/categories/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/"/>
+    
+    
+    <category term="Deep learning" scheme="http://example.com/tags/Deep-learning/"/>
+    
+    <category term="python" scheme="http://example.com/tags/python/"/>
+    
+  </entry>
   
   <entry>
     <title>深度学习的基于pytorch实现</title>
@@ -33,11 +123,11 @@
     <category term="深度学习" scheme="http://example.com/categories/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/"/>
     
     
-    <category term="pytorch" scheme="http://example.com/tags/pytorch/"/>
-    
     <category term="Deep learning" scheme="http://example.com/tags/Deep-learning/"/>
     
     <category term="python" scheme="http://example.com/tags/python/"/>
+    
+    <category term="pytorch" scheme="http://example.com/tags/pytorch/"/>
     
   </entry>
   
